@@ -2,8 +2,8 @@ import { jest, beforeEach, afterEach, describe, test, expect } from "@jest/globa
 import { LeakyBucket } from "../src/index.js";
 
 // Use fake timers throughout to avoid real delays
-beforeEach(() => jest.useFakeTimers());
-afterEach(() => { jest.useRealTimers(); });
+beforeEach(() => { jest.useFakeTimers(); return; });
+afterEach(() => { jest.useRealTimers(); return; });
 
 describe("LeakyBucket — construction", () => {
   test("default options", () => {
