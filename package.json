@@ -1,0 +1,40 @@
+{
+  "name": "leakykit",
+  "version": "0.1.0",
+  "description": "Zero-dependency TypeScript leaky bucket rate limiter. Smooth traffic to a constant rate with optional burst capacity. Port of Python ratelimiter / Go golang.org/x/time/rate leaky-bucket mode.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --forceExit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "leaky-bucket", "rate-limiter", "rate-limiting", "throttle",
+    "typescript", "zero-dependencies", "async", "concurrency"
+  ],
+  "author": "trananhtung",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trananhtung/leakykit.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
+  }
+}
